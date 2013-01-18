@@ -1,0 +1,91 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @item.project.name %>
+</p>
+
+<p>
+  <b>Item no:</b>
+  <%= @item.item_no %>
+</p>
+
+<p>
+  <b>Source from:</b>
+  <%= @item.source_from %>
+</p>
+
+<p>
+  <b>Vendor brand:</b>
+  <%= @item.vendor_brand %>
+</p>
+
+<p>
+  <b>Model no:</b>
+  <%= @item.model_no %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @item.description %>
+</p>
+
+<p>
+  <b>Fob:</b>
+  <%= @item.fob %>
+</p>
+
+<p>
+  <b>Fob port:</b>
+  <%= @item.fob_port %>
+</p>
+
+<p>
+  <b>Payment terms:</b>
+  <%= @item.payment_terms %>
+</p>
+
+<p>
+  <b>Moq:</b>
+  <%= @item.moq %>
+</p>
+
+<p>
+  <b>Repeat order leadtime:</b>
+  <%= @item.repeat_order_leadtime %>
+</p>
+
+<p>
+  <b>Packaging:</b>
+  <%= @item.packaging %>
+</p>
+
+<p>
+  <b>Suggested retail:</b>
+  <%= @item.suggested_retail %>
+</p>
+
+<p>
+  <b>Tooling complete:</b>
+  <%= @item.tooling_complete %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @item.remarks %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @item.vendor %>
+</p>
+
+<p>
+  <b>Vendor email:</b>
+  <%= @item.vendor_email %>
+</p>
+
+
+<%#= link_to 'Edit', edit_item_path(@item) %>
+<%= link_to 'Edit', "/project/#{@item.project_id}/item/#{@item.id}/edit" %> |
+<%= link_to 'Back', :back %>

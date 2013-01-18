@@ -1,0 +1,34 @@
+<h1>Listing items</h1>
+
+
+<% @items.each do |item| %>
+  <ol>
+    <li>Project:<%= item.project.name %></li>
+    
+    <li>Item no.:<%= item.item_no %></li>
+    <li>Source From:<%= item.source_from %></li>
+    <li>Vendor / Brand:<%= item.vendor_brand %></li>
+    <li>Model No.:<%= item.model_no %></li>
+    <li>Description:<%= item.description %></li>
+    <li>FOB:<%= item.fob %></li>
+    <li>FOB Port:<%= item.fob_port %></li>
+    <li>Payment terms<%= item.payment_terms %></li>
+    <li>Item MOQ:<%= item.moq %></li>
+    <li>Repeat order leadtime:<%= item.repeat_order_leadtime %>days</li>
+    <li>Packaging:<%= item.packaging %></li>
+    <li>Suggested retail:<%= item.suggested_retail %></li>
+    <li>Tooling complate:<%= item.tooling_complete %></li>
+    <li>Remarks:<%= item.remarks %></li>
+    <li>Project ID:<%= item.project_id %></li>
+    <li>Vendor:<%= item.vendor %></li>
+    <li>Vendor email:<%= item.vendor_email %></li>
+    <br>
+    <li><%= link_to 'Show', item %></li>
+    <%#= link_to 'Edit', edit_item_path(item) %>
+    <%#= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </ol>
+<% end %>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>

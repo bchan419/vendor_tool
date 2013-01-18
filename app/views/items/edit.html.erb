@@ -1,0 +1,7 @@
+<h1>Editing item</h1>
+
+<%= render 'form' %>
+
+<%#= link_to 'Show', @item %> 
+<%= link_to 'Show', "/project/#{@item.project_id}/item/#{@item.id}" %> |
+<%= link_to 'Back', :back %>

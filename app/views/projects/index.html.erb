@@ -1,0 +1,58 @@
+<h1>Welcome to Vendor Tool</h1>
+
+<% if logged_in? %>
+  <h1>Current projects</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+      <th>Project owner</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= project.name %></td>
+      <td><%= project.code %></td>
+      <td><%= project.description %></td>
+      <td><%= project.employee.first_name %><%= project.employee.last_name %></td>
+      <td><%= link_to 'Show', project %></td>
+  
+      <% if current_user.system_admin || (current_user.id == project.employee_id) %>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Add Item', "/project/#{project.id}/item/new" %></td>
+
+      <% end %>
+
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Project', new_project_path %>
+
+<% else %>
+
+  <h2>Please login</h2>
+  <%= form_tag session_url do %>
+    <div class="field">
+      <%= label_tag :email %><br />
+      <%= text_field_tag :email %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Sign In' %>
+    </div>
+  <% end %>
+
+<% end %>
