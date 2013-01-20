@@ -16,8 +16,7 @@
 
 <p>
   <b>Project owner:</b>
-  <% full_name = "#{@project.employee.first_name} #{@project.employee.last_name}" %>
-  <%= full_name %>
+  <%= full_name = "#{@project.employee.first_name} #{@project.employee.last_name}" %>
 </p>
 
 ============================================<br>
@@ -110,5 +109,7 @@
 
 <%= link_to 'Edit Project', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %> | 
-<%= link_to 'Add Item', "/project/#{@project.id}/item/new" %></td>
 
+<% if current_user.system_admin || (current_user.id == @project.employee_id) %>
+  <%= link_to 'Add Item', "/project/#{@project.id}/item/new" %></td>
+<% end %>

@@ -5,10 +5,14 @@ VendorTool::Application.routes.draw do
   match "/project/:project_id/item/new" => 'items#new'
   match "/project/:project_id/item/:item_id/edit" => 'items#edit'
   delete "/project/:project_id/item/:item_id" => 'items#destroy'
+  
+  match "/project/:project_id/item/new/confirm" => 'items#confirm'
+  #map.resources :items, :collection => {:confirm => :get}
+
 
   resources :projects
   resources :employees
-  resources :items
+  # resources :items
   resource :session, :only => [:new, :create, :destroy]
 
 

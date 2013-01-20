@@ -23,15 +23,14 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <% if current_user.system_admin %>
-      <div class="field">
-        <%= f.label :employee_id %><br />
-        <%= f.text_field :employee_id %>
-      </div>
-    <% else %>  
+  <% if current_user.system_admin %>
+    <div class="field">
+      <%= f.label :employee_id %><br />
+      <%= f.collection_select :employee_id, Employee.all, :id, :email %>
+    </div>
+  <% else %>  
       <%= f.hidden_field :employee_id, :value => current_user.id %>
-    <% end %>
+  <% end %>
   </div>
  
   <div class="actions">

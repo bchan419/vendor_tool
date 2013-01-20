@@ -101,4 +101,13 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def confirm
+    @item = Item.new(params[:item])
+    unless @item.valid?
+      render :action => :new
+    else       
+  end
+end
+
 end

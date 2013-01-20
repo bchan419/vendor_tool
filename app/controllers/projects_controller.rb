@@ -1,6 +1,13 @@
 class ProjectsController < ApplicationController
 
-  before_filter :require_project_owner_or_admin, :only => [:edit, :destroy]
+  before_filter :require_project_owner_or_admin, :only => [:edit, :destroy] 
+  before_filter :require_logged_in, :only => :show
+
+  def require_logged_in
+    if current_user.nil?
+      redirect_to root_url, notice: "You must logged in first."
+    end
+  end
 
   def require_project_owner_or_admin
     employee = Employee.find_by_id(session[:user_id])
