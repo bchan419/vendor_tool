@@ -1,6 +1,6 @@
-<%#= form_for(@item) do |f| %>
+<%= form_for(@item) do |f| %>
 
-<%= form_for @item, :url => {:action => "confirm"} do |f| %>
+<%#= form_for @item, :url => {:action => "confirm"} do |f| %>
 
   <% if @item.errors.any? %>
     <div id="error_explanation">

@@ -12,7 +12,7 @@ VendorTool::Application.routes.draw do
 
   resources :projects
   resources :employees
-  # resources :items
+  resources :items
   resource :session, :only => [:new, :create, :destroy]
 
 
