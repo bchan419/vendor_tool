@@ -1,4 +1,5 @@
 
+<div class="container">
 <p>
   <b>Name:</b>
   <%= @project.name %>
@@ -18,94 +19,115 @@
   <b>Project owner:</b>
   <%= full_name = "#{@project.employee.first_name} #{@project.employee.last_name}" %>
 </p>
-
+</div>
 ============================================<br>
-<% @project.items.each do |item| %>
-	<p>
-	  <b>Vendor:</b>
-	  <%= item.vendor %>
-	</p>
+<table class="table table-striped">
+  <tr>
+    <td class="span2 left-side-header">Vendor</td>	
+    <% @project.items.each do |item| %>
+      <th><%= item.vendor %></th>
+    <% end %>
+  </tr>
+    <td class="left-side-header">Vendor email</td>	
+    <% @project.items.each do |item| %>
+      <td><%= item.vendor_email %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <td class="left-side-header">Item #</td>	
+    <% @project.items.each do |item| %>
+      <td><%= item.item_no %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Source from</td>	
+    <% @project.items.each do |item| %>
+    <td><%= item.source_from %></td>
+  <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Vendor brand</td>	
+    <% @project.items.each do |item| %>
+      <td><%= item.vendor_brand %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Model #</td>	
+    <% @project.items.each do |item| %>
+      <td><%= item.model_no %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Descrption</td>
+    <% @project.items.each do |item| %>
+      <td><%= item.description %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">FOB (US$)</td>
+    <% @project.items.each do |item| %>
+      <td><%= item.fob %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Payment terms</td>
+    <% @project.items.each do |item| %>
+      <td><%= item.payment_terms %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">MOQ (pieces)</td>
+    <% @project.items.each do |item| %>
+      <td><%= item.moq %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Repeat Order Lead-time (days)</td>
+    <% @project.items.each do |item| %>
+      <td><%= item.repeat_order_leadtime %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Packaging</td>
+    <% @project.items.each do |item| %>
+      <td><%= item.packaging %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Suggested Retail (US$)</td>
+    <% @project.items.each do |item| %>
+      <td><%= item.suggested_retail %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Tooling complete (Y/N)</td>
+    <% @project.items.each do |item| %>
+      <td><%= item.tooling_complete %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Remarks</td>
+    <% @project.items.each do |item| %>
+      <td><%= item.remarks %></td>
+    <% end %>
+  </tr>
 
-	<p>
-	  <b>Vendor email:</b>
-	  <%= item.vendor_email %>
-	</p>
+  <tr>
+  	<td class="left-side-header">Edit</td>
+    <% @project.items.each do |item| %>
+      <td><%= link_to 'Edit', "/project/#{@project.id}/item/#{item.id}/edit" %></td>
+    <% end %>
+  </tr>
+  <tr>
+  	<td class="left-side-header">Delete item</td>
+    <% @project.items.each do |item| %>
+      <td><%= link_to 'Delete', "/project/#{@project.id}/item/#{item.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </tr>
+ 
+</table>
 
-    <p>
-      <b>Item no:</b>
-      <%= item.item_no %>
-    </p>
-
-    <p>
-      <b>Source from:</b>
-      <%= item.source_from %>
-    </p>
-
-	<p>
-	  <b>Vendor brand:</b>
-	  <%= item.vendor_brand %>
-	</p>
-
-	<p>
-	  <b>Model no:</b>
-	  <%= item.model_no %>
-	</p>
-
-	<p>
-	  <b>Description:</b>
-	  <%= item.description %>
-	</p>
-
-	<p>
-	  <b>Fob:</b>
-	  <%= item.fob %>
-	</p>
-
-	<p>
-	  <b>Fob port:</b>
-	  <%= item.fob_port %>
-	</p>
-
-	<p>
-	  <b>Payment terms:</b>
-	  <%= item.payment_terms %>
-	</p>
-
-	<p>
-	  <b>Moq:</b>
-	  <%= item.moq %>
-	</p>
-
-	<p>
-	  <b>Repeat order leadtime:</b>
-	  <%= item.repeat_order_leadtime %>
-	</p>
-
-	<p>
-	  <b>Packaging:</b>
-	  <%= item.packaging %>
-	</p>
-
-	<p>
-	  <b>Suggested retail:</b>
-	  <%= item.suggested_retail %>
-	</p>
-
-	<p>
-	  <b>Tooling complete:</b>
-	  <%= item.tooling_complete %>
-	</p>
-
-	<p>
-	  <b>Remarks:</b>
-	  <%= item.remarks %>
-	</p>
-
-    <%= link_to 'Edit item', "/project/#{@project.id}/item/#{item.id}/edit" %> |
-    <%= link_to 'Delete item', "/project/#{@project.id}/item/#{item.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
-    <br>============================================<br>
-<% end %>
-
+ 
 
 <%= link_to 'Edit Project', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %> | 
