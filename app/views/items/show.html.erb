@@ -5,6 +5,8 @@
   <%= @item.project.name %>
 </p>
 
+<%= image_tag @item.photo.url(:medium) %>
+
 <p>
   <b>Item no:</b>
   <%= @item.item_no %>

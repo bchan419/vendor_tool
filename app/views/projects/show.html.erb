@@ -28,11 +28,25 @@
       <th><%= item.vendor %></th>
     <% end %>
   </tr>
+
+  <tr>
     <td class="left-side-header">Vendor email</td>	
     <% @project.items.each do |item| %>
       <td><%= item.vendor_email %></td>
     <% end %>
   </tr>
+  
+  <tr>
+    <td class="left-side-header">Thumbnail</td>  
+    <% @project.items.each do |item| %>
+      <td>
+        <% if item.photo_file_name.present? %>
+          <%= image_tag item.photo.url(:thumb) %>
+        <% end %>
+      </td>
+    <% end %>  
+  </tr>
+
   <tr>
     <td class="left-side-header">Item #</td>	
     <% @project.items.each do |item| %>
