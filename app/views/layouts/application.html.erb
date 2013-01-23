@@ -29,18 +29,18 @@
             <% end %>
           <% end %>
         </ul>
-      </div> <!-- container --> 
+      </div> <!-- container -->
+        <% if current_user %>
+          <p>Welcome <%= current_user.email %>
+          <%= link_to 'Sign Out', session_url, :method => 'delete' %></p>
+        <% end %> 
     </div>  
   </div>
-  <div class="container">
-  <p id="notice"><%= notice %></p>
-  <% if current_user %>
-    <p>Welcome <%= current_user.email %>
-	<%= link_to 'Sign Out', session_url, :method => 'delete' %></p>
-  <% end %>
-  
 
-  <%= yield %>
+  <div class="container">
+    <p id="notice"><%= notice %></p> 
+
+    <%= yield %>
   </div>
 </body>
 </html>

@@ -7,8 +7,8 @@ class Item < ActiveRecord::Base
   validates_presence_of :vendor, :vendor_email
 
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" },
-                    :url  => "/assets/products/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+                    :url  => "/assets/items/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
 
   validates_attachment :photo, :presence => true,
                        :content_type => { :content_type => ['image/jpeg', 'image/png'] },

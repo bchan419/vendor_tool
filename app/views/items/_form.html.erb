@@ -1,5 +1,5 @@
 <%#= form_for(@item) do |f| %>
-<%= form_for @item, :url => item_url(@item.id), :html => { :multipart => true } do |f| %>
+<%= form_for @item, :html => { :multipart => true } do |f| %>
 <%#= form_for @item, :url => {:action => "confirm"} do |f| %>
 
   <% if @item.errors.any? %>
@@ -14,79 +14,82 @@
     </div>
   <% end %>
 
+  <p>* indicate required fields</p><br>
+
   <div class="field">
-    <%= f.label :project_id %><br />
+    <%= f.label :project_id %>
     <%= f.hidden_field :project_id, :value => @project.id %>
     <%= f.text_field :project, :value => @project.name, :disabled => true %>
   </div>
 
   <div class="field">
+    <%= f.label :photo %>
     <%= f.file_field :photo %>
   </div>
 
   <div class="field">
-    <%= f.label :vendor %><br />
+    <%= f.label :vendor, 'Vendor name*' %>
     <%= f.text_field :vendor %>
   </div>
   <div class="field">
-    <%= f.label :vendor_email %><br />
+    <%= f.label :vendor_email, 'Vendor email*' %>
     <%= f.text_field :vendor_email %>
   </div>
 
   <div class="field">
-    <%= f.label :item_no %><br />
+    <%= f.label :item_no %>
     <%= f.text_field :item_no %>
   </div>
   <div class="field">
-    <%= f.label :source_from %><br />
+    <%= f.label :source_from %>
     <%= f.text_field :source_from %>
   </div>
   <div class="field">
-    <%= f.label :vendor_brand %><br />
+    <%= f.label :vendor_brand %>
     <%= f.text_field :vendor_brand %>
   </div>
   <div class="field">
-    <%= f.label :model_no %><br />
+    <%= f.label :model_no %>
     <%= f.text_field :model_no %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :fob %><br />
+    <%= f.label :fob %>
     <%= f.text_field :fob %>
   </div>
   <div class="field">
-    <%= f.label :fob_port %><br />
+    <%= f.label :fob_port %>
     <%= f.text_field :fob_port %>
   </div>
   <div class="field">
-    <%= f.label :payment_terms %><br />
+    <%= f.label :payment_terms %>
     <%= f.text_field :payment_terms %>
   </div>
   <div class="field">
-    <%= f.label :moq %><br />
+    <%= f.label :moq %>
     <%= f.number_field :moq %>
   </div>
   <div class="field">
-    <%= f.label :repeat_order_leadtime %><br />
+    <%= f.label :repeat_order_leadtime %>
     <%= f.number_field :repeat_order_leadtime %>days
   </div>
   <div class="field">
-    <%= f.label :packaging %><br />
+    <%= f.label :packaging %>
     <%= f.text_field :packaging %>
   </div>
   <div class="field">
-    <%= f.label :suggested_retail %><br />
+    <%= f.label :suggested_retail %>
     <%= f.text_field :suggested_retail %>
   </div>
   <div class="field">
-    <%= f.label :tooling_complete %><br />
+    <%= f.label :tooling_complete %>
     <%= f.check_box :tooling_complete %>
   </div>
   <div class="field">
-    <%= f.label :remarks %><br />
+    <%= f.label :remarks %>
     <%= f.text_area :remarks %>
   </div>
 
