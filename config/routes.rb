@@ -9,7 +9,6 @@ VendorTool::Application.routes.draw do
   match "/project/:project_id/item/new/confirm" => 'items#confirm'
   #map.resources :items, :collection => {:confirm => :get}
 
-
   resources :projects
   resources :employees
   resources :items

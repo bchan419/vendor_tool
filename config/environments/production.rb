@@ -9,7 +9,9 @@ VendorTool::Application.configure do
       :bucket => ENV['AWS_BUCKET'],
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+    },
+    :url => ":s3_domain_url/assets/items/:id/:style/:basename.:extension",
+    :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
   }
 
   # Code is not reloaded between requests

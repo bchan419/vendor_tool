@@ -11,6 +11,7 @@ class Item < ActiveRecord::Base
                     :url  => "/assets/items/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
 
+
   validates_attachment :photo, #:presence => true,
                        :content_type => { :content_type => ['image/jpeg', 'image/png'] },
                        :size => { :less_than => 1.megabytes }
