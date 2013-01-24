@@ -34,7 +34,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Paperclip gem
-gem "paperclip", "~> 3.0"
+gem "paperclip", "~> 3.4.0"
 
 # To use Amazon S3 storage for photos
 gem 'aws-sdk'
