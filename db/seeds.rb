@@ -54,7 +54,7 @@ sample_project_items = [
     fob: 2.6,
     fob_port: "YANTIAN",
     payment_terms: "Net 30 days",
-    moq: 2000,
+    moq: 3500,
     repeat_order_leadtime: 60, 
     packaging: "Blister",
     suggested_retail: 19.99,
@@ -73,7 +73,7 @@ sample_project_items = [
     fob: 2.6,
     fob_port: "YANTIAN",
     payment_terms: "Net 30 days",
-    moq: 2000,
+    moq: 5000,
     repeat_order_leadtime: 60, 
     packaging: "Blister",
     suggested_retail: 12.95,
@@ -84,8 +84,10 @@ sample_project_items = [
   }
 ]
 
+puts "Creating seed employees"
 Employee.create employees
 
+puts "Creating seed projects"
 sample_projects.each do |project|
   project_owner = Employee.find_by_email(project[:project_owner])
   Project.create employee_id: project_owner.id, 
@@ -94,9 +96,10 @@ sample_projects.each do |project|
                    description: project[:description] 
 end
 
+puts "Creating seed items"
 sample_project_items.each do |item| 
-
   project = Project.find_by_name(item[:project])
+  puts "project name = #{project.name}"
   Item.create project_id: project.id,
               item_no: item[:item_no],
               source_from: item[:source_from],
@@ -113,5 +116,5 @@ sample_project_items.each do |item|
               tooling_complete: item[:tooling_complete],
               remarks: item[:remarks],
               vendor: item[:vendor],
-              vendor_email: item[:vendor_email] 
+              vendor_email: item[:vendor_email]
 end
