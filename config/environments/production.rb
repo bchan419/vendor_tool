@@ -4,7 +4,8 @@ VendorTool::Application.configure do
   # Amazon S3 settings for Paperclip uploads
   config.paperclip_defaults = {
     :storage => :s3,
-    :s3_host_name => 's3-us-west-2.amazonaws.com',
+    :url => ":s3_domain_url",
+    :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
     :s3_protocol => 'http',
     :s3_credentials => {
       :bucket => ENV['AWS_BUCKET'],
@@ -12,8 +13,6 @@ VendorTool::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
-
-s3-us-west-2.amazonaws.com
 
 
   # /config/environments.rb
