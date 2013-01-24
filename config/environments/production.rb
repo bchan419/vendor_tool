@@ -5,7 +5,7 @@ VendorTool::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :url => ":s3_domain_url",
-    :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
+    :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension",
     :s3_protocol => 'http',
     :s3_credentials => {
       :bucket => ENV['AWS_BUCKET'],
