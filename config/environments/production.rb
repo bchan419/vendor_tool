@@ -4,15 +4,18 @@ VendorTool::Application.configure do
   # Amazon S3 settings for Paperclip uploads
   config.paperclip_defaults = {
     :storage => :s3,
+    :s3_host_name => 's3-ap-southeast-1.amazonaws.com',
     :s3_protocol => 'http',
     :s3_credentials => {
       :bucket => ENV['AWS_BUCKET'],
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    },
-    :url => ":s3_domain_url/assets/items/:id/:style/:basename.:extension",
-    :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
+    }
   }
+
+  # /config/environments.rb
+  require 'aws/s3'
+  AWS::S3::DEFAULT_HOST = "s3-ap-southeast-1.amazonaws.com" # using sg buckets
 
   # Code is not reloaded between requests
   config.cache_classes = true

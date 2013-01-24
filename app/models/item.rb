@@ -11,6 +11,9 @@ class Item < ActiveRecord::Base
                     :url  => "/assets/items/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
 
+  # has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" },
+  #                   :url  => ":s3_sg_url",
+  #                   :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
 
   validates_attachment :photo, #:presence => true,
                        :content_type => { :content_type => ['image/jpeg', 'image/png'] },
