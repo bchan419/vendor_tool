@@ -14,11 +14,6 @@ VendorTool::Application.configure do
     }
   }
 
-
-  # /config/environments.rb
-  require 'aws/s3'
-  AWS::S3::DEFAULT_HOST = "s3-ap-southeast-1.amazonaws.com" # using sg buckets
-
   # Code is not reloaded between requests
   config.cache_classes = true
 
